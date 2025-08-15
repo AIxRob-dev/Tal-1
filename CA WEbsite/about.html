@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CA Firm - About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+body.menu-open {
+  overflow: hidden;
+}
+h1, h2, h3 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.8rem 5%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            position: relative;
+        }
+
+        /* Logo Container with Shining Animation */
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        /* Shine Effect */
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 25%,
+                rgba(255, 255, 255, 0.2) 40%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.2) 60%,
+                transparent 75%
+            );
+            transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            animation: shine 4.5s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Additional sparkle effect */
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 20%;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 6px rgba(255, 255, 255, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            animation: sparkle 4.5s ease-in-out infinite;
+            animation-delay: 1s;
+            z-index: 3;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            30% {
+                opacity: 0.8;
+                transform: translateX(-20%) translateY(-20%) rotate(45deg);
+            }
+            60% {
+                opacity: 0.8;
+                transform: translateX(80%) translateY(80%) rotate(45deg);
+            }
+            75% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 80% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+            85% {
+                opacity: 0.6;
+                transform: scale(1) rotate(90deg);
+            }
+            90% {
+                opacity: 0.8;
+                transform: scale(1.1) rotate(180deg);
+            }
+            95% {
+                opacity: 0.4;
+                transform: scale(1.2) rotate(270deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0) rotate(360deg);
+            }
+        }
+
+        /* Hover effect enhancement */
+        .logo-container:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover::before {
+            animation-duration: 3s;
+        }
+
+        .logo-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a3d5d;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            color: #555;
+            transition: color 0.3s ease;
+            position: relative;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: #1a3d5d;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a3d5d;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+  background: none;
+  border: none;
+}
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #1a3d5d;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 999;
+}
+.mobile-menu.active {
+  right: 0;
+}
+.mobile-menu .nav-links {
+  display: flex !important;
+  flex-direction: column;
+  gap: 2.5rem;
+  text-align: center;
+  width: 100%;
+  padding: 2rem;
+}
+.mobile-menu .nav-links a {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #1a3d5d !important;
+  padding: 1.2rem 2rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background: rgba(26, 61, 93, 0.05);
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.mobile-menu .nav-links a:hover,
+.mobile-menu .nav-links a.active {
+  color: #fff !important;
+  background: #1a3d5d;
+  border-color: #1a3d5d;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(26, 61, 93, 0.3);
+}
+.mobile-menu .nav-links a::after {
+  display: none;
+}
+
+/* Hamburger Animation */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Page Header */
+.page-header {
+  padding: 8rem 10% 3rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  text-align: center;
+}
+.page-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: #1a3d5d;
+}
+.page-header p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Sections */
+.section {
+  padding: 5rem 10%;
+}
+.section h2 {
+  margin-bottom: 3rem;
+  font-size: 2.2rem;
+  text-align: center;
+  color: #1a3d5d;
+}
+
+/* About Content */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.about-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a3d5d;
+}
+.about-text p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+.about-image {
+  text-align: center;
+}
+.about-image img {
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.team-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+.team-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a3d5d, #145089);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: 700;
+}
+.team-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #1a3d5d;
+}
+.team-position {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.team-education {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.team-education h5 {
+  font-size: 0.9rem;
+  color: #1a3d5d;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.team-education p {
+  font-size: 0.9rem;
+  color: #555;
+}
+.team-objective {
+  font-style: italic;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Values Section */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.value-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-top: 4px solid #1a3d5d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.value-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.value-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.value-card h4 {
+  margin-bottom: 1rem;
+  color: #1a3d5d;
+}
+.value-card p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  padding: 2rem 5%;
+  background: #1a3d5d;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  .navbar {
+    padding: 1rem 3%;
+  }
+  .page-header {
+    padding: 6rem 5% 2rem;
+  }
+  .page-header h1 {
+    font-size: 2.2rem;
+  }
+  .section {
+    padding: 3rem 5%;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Ensure mobile menu links are visible */
+  .mobile-menu.active .nav-links {
+    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 1.9rem;
+  }
+  .mobile-menu .nav-links a {
+    font-size: 1.5rem;
+  }
+  .team-card,
+  .value-card {
+    padding: 1.5rem;
+  }
+  .section h2 {
+    font-size: 1.8rem;
+  }
+}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+        <div class="logo">
+            <div class="logo-container">
+                <img src="logo.png" alt="CA Logo">
+            </div>
+            <span class="logo-text">CA & Associates</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="coworking.html">Co-Working Space</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="coworking.html">Co-Working Space</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+
+  <section class="page-header">
+    <h1 class="fade-in">About CA & Associates</h1>
+    <p class="fade-in">Excellence in Financial Services Since Our Inception</p>
+  </section>
+
+  <section class="section">
+    <div class="about-content fade-in">
+      <div class="about-text">
+        <h3>Our Story</h3>
+        <p>CA & Associates has been at the forefront of providing comprehensive financial and business advisory services. With decades of combined experience, our firm has built a reputation for delivering exceptional results and maintaining the highest standards of professional integrity.</p>
+        <p>We pride ourselves on our commitment to excellence, innovative solutions, and personalized service that helps our clients navigate complex financial landscapes with confidence.</p>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop" alt="Our Office" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: #f8f9fa;">
+    <h2 class="fade-in">Our Core Values</h2>
+    <div class="values-grid fade-in">
+      <div class="value-card">
+        <div class="value-icon">🎯</div>
+        <h4>Integrity</h4>
+        <p>We maintain the highest ethical standards in all our professional dealings and client relationships.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <h4>Excellence</h4>
+        <p>We strive for perfection in every service we provide, ensuring superior quality and results.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h4>Trust</h4>
+        <p>Building lasting relationships through transparency, reliability, and consistent performance.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💡</div>
+        <h4>Innovation</h4>
+        <p>Embracing modern solutions and technologies to deliver efficient and effective services.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="fade-in">Meet Our Team</h2>
+    <div class="team-grid fade-in">
+      <div class="team-card">
+        <div class="team-photo">CA</div>
+        <h4>Rajesh Sharma</h4>
+        <div class="team-position">Managing Partner</div>
+        <div class="team-education">
+          <h5>Education</h5>
+          <p>CA, B.Com (Hons), MBA Finance<br>15+ years experience</p>
+        </div>
+        <div class="team-objective">
+          "To provide strategic financial guidance that empowers businesses to achieve sustainable growth and compliance excellence."
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">CA</div>
+        <h4>Priya Patel</h4>
+        <div class="team-position">Senior Partner</div>
+        <div class="team-education">
+          <h5>Education</h5>
+          <p>CA, CS, LLB<br>12+ years experience</p>
+        </div>
+        <div class="team-objective">
+          "Specializing in tax optimization and regulatory compliance to help clients navigate complex financial regulations with ease."
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">AM</div>
+        <h4>Amit Mehta</h4>
+        <div class="team-position">Audit Manager</div>
+        <div class="team-education">
+          <h5>Education</h5>
+          <p>CA, B.Com, CFA Level II<br>8+ years experience</p>
+        </div>
+        <div class="team-objective">
+          "Ensuring thorough and accurate audit processes that provide clients with reliable financial insights and risk assessment."
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">SK</div>
+        <h4>Sneha Kapoor</h4>
+        <div class="team-position">Tax Consultant</div>
+        <div class="team-education">
+          <h5>Education</h5>
+          <p>CA, M.Com Taxation<br>6+ years experience</p>
+        </div>
+        <div class="team-objective">
+          "Dedicated to maximizing tax efficiency while ensuring full compliance with evolving tax laws and regulations."
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">VG</div>
+        <h4>Vikash Gupta</h4>
+        <div class="team-position">Business Advisor</div>
+        <div class="team-education">
+          <h5>Education</h5>
+          <p>CA, MBA Strategy<br>10+ years experience</p>
+        </div>
+        <div class="team-objective">
+          "Providing strategic business consulting to help organizations optimize operations and achieve their financial objectives."
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">NV</div>
+        <h4>Neha Verma</h4>
+        <div class="team-position">Compliance Officer</div>
+        <div class="team-education">
+          <h5>Education</h5>
+          <p>CA, CS, B.Com<br>7+ years experience</p>
+        </div>
+        <div class="team-objective">
+          "Ensuring seamless regulatory compliance and risk management to protect our clients' business interests and reputation."
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 CA & Associates | All Rights Reserved
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Fade-in animation observer
+      const fadeElems = document.querySelectorAll(".fade-in");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      fadeElems.forEach(el => observer.observe(el));
+
+      // Mobile Menu Toggle Functionality
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const navbar = document.getElementById('navbar');
+      const body = document.body;
+
+      // Toggle mobile menu
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        body.classList.toggle('menu-open');
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileNavLinks = mobileMenu.querySelectorAll('.nav-links a');
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          body.classList.remove('menu-open');
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) {
+          menuToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          body.classList.remove('menu-open');
+        }
+      });
+
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          menuToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          body.classList.remove('menu-open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
