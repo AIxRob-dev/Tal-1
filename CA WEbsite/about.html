@@ -356,28 +356,46 @@ img {
   max-width: 400px;
 }
 
-/* Team Grid */
+/* Team Section Enhanced */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
 }
 .team-card {
   background: #fff;
-  border-radius: 15px;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(26, 61, 93, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1a3d5d, #145089);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.team-card:hover::before {
+  transform: scaleX(1);
 }
 .team-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(26, 61, 93, 0.12);
+  border-color: rgba(26, 61, 93, 0.1);
 }
 .team-photo {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin: 0 auto 1.5rem;
   overflow: hidden;
@@ -385,77 +403,161 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
+  border: 4px solid #f8fafc;
+  box-shadow: 0 4px 15px rgba(26, 61, 93, 0.15);
 }
 .team-card h4 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin-bottom: 0.5rem;
   color: #1a3d5d;
+  font-weight: 600;
 }
 .team-position {
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+  color: #145089;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
+  font-weight: 500;
 }
 .team-education {
-  background: #f8f9fa;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid #1a3d5d;
 }
 .team-education h5 {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #1a3d5d;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-weight: 600;
 }
 .team-education p {
   font-size: 0.9rem;
-  color: #555;
+  color: #4b5563;
+  line-height: 1.5;
 }
 .team-objective {
   font-style: italic;
-  color: #666;
+  color: #6b7280;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  position: relative;
+  padding: 0 1rem;
+}
+.team-objective::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -5px;
+  font-size: 2rem;
+  color: #1a3d5d;
+  opacity: 0.3;
+}
+.team-objective::after {
+  content: '"';
+  position: absolute;
+  right: 0;
+  bottom: -15px;
+  font-size: 2rem;
+  color: #1a3d5d;
+  opacity: 0.3;
 }
 
-/* Values Section */
+/* Read More Functionality */
+.team-objective {
+  max-height: 60px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.team-objective.expanded {
+  max-height: none;
+}
+.read-more-btn {
+  background: transparent;
+  border: 1px solid #1a3d5d;
+  color: #1a3d5d;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+.read-more-btn:hover {
+  background: #1a3d5d;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Values Section - Minimalist Design */
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
 }
 .value-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
+  background: transparent;
+  padding: 2.5rem 1.5rem;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  border-top: 4px solid #1a3d5d;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  transition: transform 0.3s ease;
 }
 .value-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transform: translateY(-8px);
+}
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #1a3d5d, #145089);
+  border-radius: 2px;
 }
 .value-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  width: 80px;
+  height: 80px;
+  margin: 2rem auto 1.5rem;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #1a3d5d;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(26, 61, 93, 0.1);
+}
+.value-card:hover .value-icon {
+  background: linear-gradient(135deg, #1a3d5d, #145089);
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(26, 61, 93, 0.2);
 }
 .value-card h4 {
   margin-bottom: 1rem;
   color: #1a3d5d;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 .value-card p {
-  color: #666;
+  color: #6b7280;
   font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 250px;
+  margin: 0 auto;
 }
 
 /* Footer */
@@ -549,7 +651,7 @@ footer {
             <div class="logo-container">
                 <img src="logo.png" alt="CA Logo">
             </div>
-            <span class="logo-text">CA & Associates</span>
+            <span class="logo-text">FoundersCube</span>
         </div>
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -583,11 +685,11 @@ footer {
     <div class="about-content fade-in">
       <div class="about-text">
         <h3>Our Story</h3>
-        <p>CA & Associates has been at the forefront of providing comprehensive financial and business advisory services. With decades of combined experience, our firm has built a reputation for delivering exceptional results and maintaining the highest standards of professional integrity.</p>
-        <p>We pride ourselves on our commitment to excellence, innovative solutions, and personalized service that helps our clients navigate complex financial landscapes with confidence.</p>
+        <p>Founders Cube is a private Startup Business Incubation Center located at Mahadevapura, Whitefield Main Road, Bengaluru. Founders Cube is acting as a platform for startups to meet startup entrepreneurs, mentors, advisors, investors, industry experts, representatives from Govt. department and help them to fit in to the requirements of Startup India Action Plan and other Govt</p>
+        <p> Aids and grants through awareness, proper monitoring and guidance. We are also providing training and capacity building programs, Interaction with government representatives, awareness programs for legal and compliance requirements and other programs based on the industry needs.</p>
       </div>
       <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop" alt="Our Office" />
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&h=400&fit=crop&auto=format" alt="Our Office" />
       </div>
     </div>
   </section>
@@ -596,22 +698,38 @@ footer {
     <h2 class="fade-in">Our Core Values</h2>
     <div class="values-grid fade-in">
       <div class="value-card">
-        <div class="value-icon">🎯</div>
+        <div class="value-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
         <h4>Integrity</h4>
         <p>We maintain the highest ethical standards in all our professional dealings and client relationships.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">⚡</div>
+        <div class="value-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13 2.05v2.02c4.39.54 7.5 4.53 6.96 8.92-.39 3.18-2.34 5.87-5.16 7.28-2.82 1.41-6.18 1.07-8.71-.89-2.53-1.96-3.51-5.31-2.55-8.36.96-3.06 3.84-5.07 7.46-5.02z"/>
+          </svg>
+        </div>
         <h4>Excellence</h4>
         <p>We strive for perfection in every service we provide, ensuring superior quality and results.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">🤝</div>
+        <div class="value-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1L9 9l-8 0 6.5 4.7L5 22l7-5.1L19 22l-2.5-8.3L23 9l-8 0z"/>
+          </svg>
+        </div>
         <h4>Trust</h4>
         <p>Building lasting relationships through transparency, reliability, and consistent performance.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">💡</div>
+        <div class="value-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
+          </svg>
+        </div>
         <h4>Innovation</h4>
         <p>Embracing modern solutions and technologies to deliver efficient and effective services.</p>
       </div>
@@ -622,81 +740,103 @@ footer {
     <h2 class="fade-in">Meet Our Team</h2>
     <div class="team-grid fade-in">
       <div class="team-card">
-        <div class="team-photo">CA</div>
-        <h4>Rajesh Sharma</h4>
+        <div class="team-photo">
+          <img src="Manobin.jpeg" alt="">
+        </div>
+        <h4>CA Manobin</h4>
         <div class="team-position">Managing Partner</div>
         <div class="team-education">
           <h5>Education</h5>
-          <p>CA, B.Com (Hons), MBA Finance<br>15+ years experience</p>
+          <p>CA, B.Com, Accounting & Finance<br>20+ years experience</p>
         </div>
         <div class="team-objective">
-          "To provide strategic financial guidance that empowers businesses to achieve sustainable growth and compliance excellence."
+         CA Manobin is the Founder director of Founders Cube Cowork and Incubation Centre. He is an enthusiastic Chartered Accountant and entrepreneur with 20 years’ of experience and expertise in Startups, International Taxation, Non- profit sector, Corporate Law, FEMA, SEBI, Merger and Aquisitions etc. He is also expert in dispute resolution and settlement for Startups. As a Founder, CA Manobin’s vision is to uplift aspiring entrepreneurs with all support systems at one place through incubation programs specially designed for startups and early stage companies. He is serving as virtual CFO for 300 plus startups. His clientele is based across the globe.
+        <span>
+           <br><br>He is also Founder of Finmatrix Strategic Consulting Private Limited, a finance outsourcing company providing “CLOUD MANAGEMENT& VIRTUAL CFO SERVICES” and business entity set up for Startups, Multi – National companies and NRIs.</span>
         </div>
+        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
       </div>
 
       <div class="team-card">
-        <div class="team-photo">CA</div>
-        <h4>Priya Patel</h4>
+        <div class="team-photo">
+            <img src="Mrkar.png" alt="">
+        </div>
+        <h4>Mr. M G Kodandaram</h4>
         <div class="team-position">Senior Partner</div>
         <div class="team-education">
           <h5>Education</h5>
-          <p>CA, CS, LLB<br>12+ years experience</p>
+          <p>IRS (Retd) LLB<br>20+ years experience</p>
         </div>
         <div class="team-objective">
-          "Specializing in tax optimization and regulatory compliance to help clients navigate complex financial regulations with ease."
+         M G Kodandaram, IRS is the retired Assistant Director of Customs and Central Excise. Currently, he is practising as an ADVOCATE and CONSULTANT, Master Trainer of GST for CBIC, Government Of India, Faculty of National Academy of Customs Indirect Taxes & Narcotics (NACIN), Member of State GST Committee, Federation of Karnataka Chambers of Commerce & Industry (FKCCI), Advisor of BBMP ROSHINI 21st century connected Schools project, Author of the book titled A PRACTICAL GUIDE TO GST PRACTITIONERS’ EXAMINATION published by KARNATAKA LAW JOURNAL PUBLICATIONS (KLJ). He is recipient of the “Sanman Award”. 
         </div>
+        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
       </div>
 
       <div class="team-card">
-        <div class="team-photo">AM</div>
-        <h4>Amit Mehta</h4>
-        <div class="team-position">Audit Manager</div>
+        <div class="team-photo">
+          <img src="Manimala.png" alt="">
+        </div>
+        <h4>Prof. Mathew J Manimala</h4>
+        <div class="team-position">SENIOR Partner</div>
         <div class="team-education">
           <h5>Education</h5>
-          <p>CA, B.Com, CFA Level II<br>8+ years experience</p>
+          <p>IIM (Retd)<br>15+ years experience</p>
         </div>
         <div class="team-objective">
-          "Ensuring thorough and accurate audit processes that provide clients with reliable financial insights and risk assessment."
+          Mathew J Manimala is the Director of XIME Bangalore. Prior to joining XIME in July 2015, he was Professor of Organization Behaviour and Chairperson of OB-HRM area at IIMB, where he has also served as the Jamuna Raghavan Chair Professor of Entrepreneurship and as the Chairperson of N. S. Raghavan Centre for Entrepreneurial Learning (NSRCEL). His earlier academic positions were at the Administrative Staff College of India (ASCI)—he was a Senior Faculty and Chairperson of the HRM area—and Cochin University of Science and Technology (CUSAT). He is a recipient of the Heizer Award of the Academy of Management for Outstanding Research in the field of new enterprise development as well as of research fellowships from the European Foundation for Management Development (EFMD) and the Shastri Indo- Canadian Institute (SICI).
         </div>
+        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
       </div>
 
       <div class="team-card">
-        <div class="team-photo">SK</div>
+        <div class="team-photo">
+          <img src="sridhar.png" alt="">
+        </div>
         <h4>Sneha Kapoor</h4>
-        <div class="team-position">Tax Consultant</div>
+        <div class="team-position">SENIOR PARTNER</div>
         <div class="team-education">
           <h5>Education</h5>
-          <p>CA, M.Com Taxation<br>6+ years experience</p>
+          <p>IRS (Retd)<br>20+ years experience</p>
         </div>
         <div class="team-objective">
-          "Dedicated to maximizing tax efficiency while ensuring full compliance with evolving tax laws and regulations."
+         Mr.TNC Sridhar is the retired Joint Commissioner of Income Tax. He worked in various formations in the department such as Assessment (corporate, Non-corporate, Salary, central circle), investigation, intelligence, prosecution, acquisition, training, administration and also as department representative at ITAT Panaji bench. Currently, he is working as Adocate at Karnataka State Bar Council. He holds Diploma in Labour Law and is an expert in Labour Law matters.
         </div>
+        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
       </div>
 
       <div class="team-card">
-        <div class="team-photo">VG</div>
+        <div class="team-photo">
+          <img src="Mrk.jpeg" alt="">
+        </div>
         <h4>Vikash Gupta</h4>
-        <div class="team-position">Business Advisor</div>
+        <div class="team-position"></div>
         <div class="team-education">
           <h5>Education</h5>
-          <p>CA, MBA Strategy<br>10+ years experience</p>
+          <p>KAS (Retd), MA, LLM<br>15+ years experience</p>
         </div>
         <div class="team-objective">
-          "Providing strategic business consulting to help organizations optimize operations and achieve their financial objectives."
+         Known as an upright officer, Mr. Mathai KAS (retd) has served as Ex Commissioner, MUDA, Mandya, Ex-Assistant Commissioner (Advt) of BBMP, Ex Administrator of Department of Personnel and Administrative Reforms (DPAR) of Sakala Mission of Government Of Karnataka and Ex Special Officer, Land Acquisition of Bangalore Development Authority.
+He is an advocate practising in civil and criminal matters in the High Court of Bangalore.
+He was conferred the Kannada Rajyotsava Award by News Papers Association of Karnataka and Vocational Excellence Award by Rotary Club Yelehanka in the year 2019.
         </div>
+        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
       </div>
 
       <div class="team-card">
-        <div class="team-photo">NV</div>
-        <h4>Neha Verma</h4>
-        <div class="team-position">Compliance Officer</div>
+        <div class="team-photo">
+          <img src="Paul.png" alt="">
+        </div>
+        <h4>Mr. Paul D'souza</h4>
+        <div class="team-position"></div>
         <div class="team-education">
           <h5>Education</h5>
-          <p>CA, CS, B.Com<br>7+ years experience</p>
+          <p>Chief Technology Officer<br>15+ years experience</p>
         </div>
         <div class="team-objective">
-          "Ensuring seamless regulatory compliance and risk management to protect our clients' business interests and reputation."
+          Paul D’souza, an inventor of various technologies and holder of many patents has been working on solving diverse problems for several years. His areas of interest have led to several innovations and inventions in the fields of plumbing, masonry, carpentry, metal work, precision machining, watch making, jewellery techniques, electrical and electronics, computers, optics, miniatures, aero-modelling and even embroidery in his younger days. Paul D’souza is the Chief Technology Officer in charge of the production of Touché – the refreshable Braille display- as well as development of other ideas on the burner, and execution of the same.
         </div>
+        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
       </div>
     </div>
   </section>
@@ -704,71 +844,85 @@ footer {
   <footer>
     &copy; 2025 CA & Associates | All Rights Reserved
   </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Fade-in animation observer
-      const fadeElems = document.querySelectorAll(".fade-in");
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, { threshold: 0.2 });
-      
-      fadeElems.forEach(el => observer.observe(el));
-
-      // Mobile Menu Toggle Functionality
-      const menuToggle = document.getElementById('menuToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const navbar = document.getElementById('navbar');
-      const body = document.body;
-
-      // Toggle mobile menu
-      menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        body.classList.toggle('menu-open');
-      });
-
-      // Close mobile menu when clicking on a link
-      const mobileNavLinks = mobileMenu.querySelectorAll('.nav-links a');
-      mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          menuToggle.classList.remove('active');
-          mobileMenu.classList.remove('active');
-          body.classList.remove('menu-open');
-        });
-      });
-
-      // Close mobile menu when clicking outside
-      mobileMenu.addEventListener('click', (e) => {
-        if (e.target === mobileMenu) {
-          menuToggle.classList.remove('active');
-          mobileMenu.classList.remove('active');
-          body.classList.remove('menu-open');
-        }
-      });
-
-      // Navbar scroll effect
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      });
-
-      // Handle window resize
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-          menuToggle.classList.remove('active');
-          mobileMenu.classList.remove('active');
-          body.classList.remove('menu-open');
-        }
-      });
+<script>
+ document.addEventListener("DOMContentLoaded", () => {
+  // Fade-in animation observer
+  const fadeElems = document.querySelectorAll(".fade-in");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
     });
-  </script>
+  }, { threshold: 0.2 });
+  
+  fadeElems.forEach(el => observer.observe(el));
+
+  // Mobile Menu Toggle Functionality
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const navbar = document.getElementById('navbar');
+  const body = document.body;
+
+  // Toggle mobile menu
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    body.classList.toggle('menu-open');
+  });
+
+  // Close mobile menu when clicking on a link
+  const mobileNavLinks = mobileMenu.querySelectorAll('.nav-links a');
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      menuToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      body.classList.remove('menu-open');
+    }
+  });
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      menuToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      body.classList.remove('menu-open');
+    }
+  });
+});
+
+// Read More functionality for team cards (Global function)
+function toggleReadMore(button) {
+  const objective = button.previousElementSibling;
+  const isExpanded = objective.classList.contains('expanded');
+  
+  if (isExpanded) {
+    objective.classList.remove('expanded');
+    button.textContent = 'Read More';
+  } else {
+    objective.classList.add('expanded');
+    button.textContent = 'Read Less';
+  }
+}
+
+</script>
 </body>
 </html>
