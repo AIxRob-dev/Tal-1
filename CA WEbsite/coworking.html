@@ -35,185 +35,187 @@ img {
 }
 
 /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 5%;
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
 
-        .navbar.scrolled {
-            padding: 0.8rem 5%;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
+.navbar.scrolled {
+    padding: 0.8rem 5%;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            position: relative;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
 
-        /* Logo Container with Shining Animation */
-        .logo-container {
-            position: relative;
-            display: inline-block;
-            overflow: hidden;
-            border-radius: 8px;
-        }
+/* Logo Container with Shining Animation */
+.logo-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 8px;
+}
 
-        .logo img {
-            height: 45px;
-            width: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
+.logo img {
+    height: 45px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
 
-        /* Shine Effect */
-        .logo-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 25%,
-                rgba(255, 255, 255, 0.2) 40%,
-                rgba(255, 255, 255, 0.6) 50%,
-                rgba(255, 255, 255, 0.2) 60%,
-                transparent 75%
-            );
-            transform: translateX(-100%) translateY(-100%) rotate(45deg);
-            animation: shine 4.5s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 2;
-        }
+/* Shine Effect */
+.logo-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 25%,
+        rgba(255, 255, 255, 0.2) 40%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.2) 60%,
+        transparent 75%
+    );
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    animation: shine 4.5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+}
 
-        /* Additional sparkle effect */
-        .logo-container::after {
-            content: '';
-            position: absolute;
-            top: 20%;
-            right: 20%;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            box-shadow: 
-                0 0 6px rgba(255, 255, 255, 0.8),
-                0 0 12px rgba(255, 255, 255, 0.4);
-            opacity: 0;
-            animation: sparkle 4.5s ease-in-out infinite;
-            animation-delay: 1s;
-            z-index: 3;
-        }
+/* Additional sparkle effect */
+.logo-container::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 6px rgba(255, 255, 255, 0.8),
+        0 0 12px rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    animation: sparkle 4.5s ease-in-out infinite;
+    animation-delay: 1s;
+    z-index: 3;
+}
 
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            30% {
-                opacity: 0.8;
-                transform: translateX(-20%) translateY(-20%) rotate(45deg);
-            }
-            60% {
-                opacity: 0.8;
-                transform: translateX(80%) translateY(80%) rotate(45deg);
-            }
-            75% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-                opacity: 0;
-            }
-        }
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    30% {
+        opacity: 0.8;
+        transform: translateX(-20%) translateY(-20%) rotate(45deg);
+    }
+    60% {
+        opacity: 0.8;
+        transform: translateX(80%) translateY(80%) rotate(45deg);
+    }
+    75% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+        opacity: 0;
+    }
+}
 
-        @keyframes sparkle {
-            0%, 80% {
-                opacity: 0;
-                transform: scale(0) rotate(0deg);
-            }
-            85% {
-                opacity: 0.6;
-                transform: scale(1) rotate(90deg);
-            }
-            90% {
-                opacity: 0.8;
-                transform: scale(1.1) rotate(180deg);
-            }
-            95% {
-                opacity: 0.4;
-                transform: scale(1.2) rotate(270deg);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(0) rotate(360deg);
-            }
-        }
+@keyframes sparkle {
+    0%, 80% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    85% {
+        opacity: 0.6;
+        transform: scale(1) rotate(90deg);
+    }
+    90% {
+        opacity: 0.8;
+        transform: scale(1.1) rotate(180deg);
+    }
+    95% {
+        opacity: 0.4;
+        transform: scale(1.2) rotate(270deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(360deg);
+    }
+}
 
-        /* Hover effect enhancement */
-        .logo-container:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
-        }
+/* Hover effect enhancement */
+.logo-container:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
 
-        .logo-container:hover::before {
-            animation-duration: 3s;
-        }
+.logo-container:hover::before {
+    animation-duration: 3s;
+}
 
-        .logo-text {
-            font-family: 'Merriweather', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1a3d5d;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
+.logo-text {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a3d5d;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
 
-        .nav-links a {
-            font-size: 1rem;
-            color: #555;
-            transition: color 0.3s ease;
-            position: relative;
-            font-weight: 400;
-        }
+.nav-links a {
+    font-size: 1rem;
+    color: #555;
+    transition: color 0.3s ease;
+    position: relative;
+    font-weight: 400;
+}
 
-        .nav-links a:hover {
-            color: #1a3d5d;
-        }
+.nav-links a:hover {
+    color: #1a3d5d;
+}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1a3d5d;
-            transition: width 0.3s ease;
-        }
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #1a3d5d;
+    transition: width 0.3s ease;
+}
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+.nav-links a:hover::after {
+    width: 100%;
+}
 
 /* Mobile Menu Toggle */
 .menu-toggle {
@@ -299,9 +301,133 @@ img {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Page Header */
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(26, 61, 93, 0.8), rgba(20, 80, 137, 0.8)),
+              url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(26, 61, 93, 0.7);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+  animation: fadeInUp 1.5s ease;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  animation: fadeInUp 1.5s ease 0.2s both;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  animation: fadeInUp 1.5s ease 0.4s both;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1.5s ease 0.6s both;
+}
+
+.hero-btn {
+  padding: 1rem 2.5rem;
+  background: #fff;
+  color: #1a3d5d;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+  background: #f8f9fa;
+}
+
+.hero-btn.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.hero-btn.secondary:hover {
+  background: white;
+  color: #1a3d5d;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  z-index: 2;
+}
+
+.scroll-indicator::before {
+  content: '↓';
+  font-size: 2rem;
+  color: white;
+  opacity: 0.8;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Page Header (Updated for sections after hero) */
 .page-header {
-  padding: 8rem 10% 3rem;
+  padding: 5rem 10% 3rem;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   text-align: center;
 }
@@ -349,7 +475,8 @@ img {
 }
 .service-image {
   height: 200px;
-  background: linear-gradient(135deg, #1a3d5d, #145089);
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -365,13 +492,35 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.3);
+  background: rgba(26, 61, 93, 0.7);
   z-index: 1;
 }
 .service-image span {
   position: relative;
   z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
+
+/* Service-specific background images */
+.service-card:nth-child(1) .service-image {
+  background-image: url('https://images.unsplash.com/photo-1497366412874-3415097a27e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+}
+.service-card:nth-child(2) .service-image {
+  background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+}
+.service-card:nth-child(3) .service-image {
+  background-image: url('https://images.unsplash.com/photo-1517502884422-41eaead166d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+}
+.service-card:nth-child(4) .service-image {
+  background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+}
+.service-card:nth-child(5) .service-image {
+  background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+}
+.service-card:nth-child(6) .service-image {
+  background-image: url('https://images.pexels.com/photos/8761634/pexels-photo-8761634.jpeg');
+}
+
 .service-content {
   padding: 2rem;
 }
@@ -421,6 +570,8 @@ img {
 }
 .btn:hover {
   background: #145089;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(26, 61, 93, 0.3);
 }
 
 /* Facilities Section */
@@ -491,13 +642,95 @@ img {
   font-size: 0.95rem;
 }
 
+/* Address & Map Section */
+.address-section {
+  padding: 5rem 10%;
+  background: #f8f9fa;
+}
+
+.address-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.address-info h2 {
+  color: #1a3d5d;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+}
+
+.contact-details {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: #1a3d5d;
+  min-width: 30px;
+}
+
+.contact-text h4 {
+  color: #1a3d5d;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.contact-text p {
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  height: 400px;
+  background: #f0f0f0;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
+}
+
+.map-container:hover iframe {
+  filter: grayscale(0%);
+}
+
 /* Footer */
 footer {
   padding: 2rem 5%;
-  background: #f8f8f8;
+  background: #1a3d5d;
   text-align: center;
   font-size: 0.9rem;
-  color: #777;
+  color: rgba(255,255,255,0.8);
 }
 
 /* Animations */
@@ -536,6 +769,30 @@ footer {
   .navbar {
     padding: 1rem 3%;
   }
+  
+  .hero {
+    height: 80vh;
+    background-attachment: scroll;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
   .page-header {
     padding: 6rem 5% 2rem;
   }
@@ -565,6 +822,19 @@ footer {
     padding: 3rem 5%;
   }
   
+  .address-section {
+    padding: 3rem 5%;
+  }
+  
+  .address-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .map-container {
+    height: 300px;
+  }
+  
   /* Ensure mobile menu links are visible */
   .mobile-menu.active .nav-links {
     display: flex !important;
@@ -574,6 +844,10 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
   .page-header h1 {
     font-size: 1.9rem;
   }
@@ -599,6 +873,15 @@ footer {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .map-container {
+    height: 250px;
+  }
 }
 </style>
 </head>
@@ -608,7 +891,7 @@ footer {
             <div class="logo-container">
                 <img src="logo.png" alt="CA Logo">
             </div>
-            <span class="logo-text">CA & Associates</span>
+            <span class="logo-text"> FoundersCube</span>
         </div>
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -633,12 +916,20 @@ footer {
     </div>
   </div>
 
-  <section class="page-header">
-    <h1 class="fade-in">Professional Co-Working Spaces</h1>
-    <p class="fade-in">Modern workspace solutions designed for entrepreneurs, freelancers, and growing businesses</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Premium Co-Working Spaces</h1>
+      <p>Transform your business with modern, flexible workspace solutions designed for success. From private cabins to hot desks, we have the perfect space for every professional need.</p>
+      <div class="hero-cta">
+        <a href="#services" class="hero-btn">Explore Spaces</a>
+        <a href="#contact" class="hero-btn secondary">Contact Us</a>
+      </div>
+    </div>
+    <div class="scroll-indicator"></div>
   </section>
 
-  <section class="section">
+  <section class="section" id="services">
     <h2 class="fade-in">Our Workspace Solutions</h2>
     <div class="services-grid fade-in">
       
@@ -648,22 +939,22 @@ footer {
         </div>
         <div class="service-content">
           <h3>Private Cabins</h3>
-          <div class="service-price">Starting at Rs. 30,000/pm</div>
+          <div class="service-price">Rs. 5,000/pm only</div>
           <div class="service-description">
-            Fully furnished private cabins dedicated to your company starting at just Rs. 30,000/pm only.
+            A dedicated desk with storage at the coworking space perfect for startups and freelancers.
           </div>
           <ul class="service-features">
-            <li>Ideal for companies with small teams of 5-20 members</li>
-            <li>Fully furnished and equipped</li>
-            <li>24/7 access and security</li>
-            <li>High-speed internet included</li>
-            <li>Meeting room access</li>
+            <li>Ideal for startups and freelancers</li>
+            <li>Personal storage space</li>
+            <li>Networking opportunities</li>
+            <li>Access to common areas</li>
+            <li>Printing and scanning facilities</li>
           </ul>
-          <a href="#" class="btn">Book Now</a>
+          <a href="#contact" class="btn">Book Now</a>
         </div>
       </div>
 
-      <div class="service-card">
+       <div class="service-card">
         <div class="service-image">
           <span>💼</span>
         </div>
@@ -683,7 +974,6 @@ footer {
           <a href="#" class="btn">Book Now</a>
         </div>
       </div>
-
       <div class="service-card">
         <div class="service-image">
           <span>⚡</span>
@@ -701,7 +991,7 @@ footer {
             <li>Access to all amenities</li>
             <li>Professional environment</li>
           </ul>
-          <a href="#" class="btn">Book Now</a>
+          <a href="#contact" class="btn">Book Now</a>
         </div>
       </div>
 
@@ -722,7 +1012,7 @@ footer {
             <li>Legal compliance support</li>
             <li>Business registration assistance</li>
           </ul>
-          <a href="#" class="btn">Book Now</a>
+          <a href="#contact" class="btn">Book Now</a>
         </div>
       </div>
 
@@ -743,7 +1033,7 @@ footer {
             <li>Mail handling services</li>
             <li>Phone answering services</li>
           </ul>
-          <a href="#" class="btn">Book Now</a>
+          <a href="#contact" class="btn">Book Now</a>
         </div>
       </div>
 
@@ -764,7 +1054,7 @@ footer {
             <li>High-speed WiFi</li>
             <li>Catering services available</li>
           </ul>
-          <a href="#" class="btn">Book Now</a>
+          <a href="#contact" class="btn">Book Now</a>
         </div>
       </div>
 
@@ -876,6 +1166,59 @@ footer {
     </div>
   </section>
 
+  <!-- Address & Map Section -->
+  <section class="address-section" id="contact">
+    <div class="address-content fade-in">
+      <div class="address-info">
+        <h2>Visit Our Location</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-text">
+              <h4>Address</h4>
+              <p>102/1, Founders Cube 1st Floor, Outer Ring Rd,<br>
+              Kamadhenu Nagar, B Narayanapura, Mahadevapura,<br>
+              Bengaluru, Karnataka 560016</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>founderscubeblr@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-text">
+              <h4>Phone</h4>
+              <p>080 29539796</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div class="contact-text">
+              <h4>Mobile</h4>
+              <p>9744522483</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0123456789!2d77.7234567!3d12.9876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU5JzE1LjYiTiA3N8KwNDMnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
   <footer>
     &copy; 2025 CA & Associates | All Rights Reserved
   </footer>
@@ -950,6 +1293,31 @@ footer {
           menuToggle.classList.remove('active');
           mobileMenu.classList.remove('active');
           body.classList.remove('menu-open');
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Hero parallax effect
+      window.addEventListener('scroll', () => {
+        const hero = document.querySelector('.hero');
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        if (hero && scrolled < hero.offsetHeight) {
+          hero.style.transform = `translateY(${rate}px)`;
         }
       });
     });
