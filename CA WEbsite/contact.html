@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -335,6 +336,7 @@ img {
   background: #f8f9fa;
   padding: 3rem;
   border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 .contact-info h2 {
   color: #1a3d5d;
@@ -345,32 +347,53 @@ img {
   display: flex;
   align-items: flex-start;
   margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+.contact-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 .contact-icon {
-  font-size: 1.5rem;
-  margin-right: 1rem;
+  font-size: 1.8rem;
+  margin-right: 1.2rem;
   margin-top: 0.2rem;
   color: #1a3d5d;
+  min-width: 40px;
 }
 .contact-details h4 {
   color: #1a3d5d;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
+  font-weight: 600;
 }
 .contact-details p {
   color: #666;
   line-height: 1.6;
 }
+.contact-details a {
+  color: #1a3d5d;
+  transition: color 0.3s ease;
+}
+.contact-details a:hover {
+  color: #145089;
+  text-decoration: underline;
+}
 .business-hours {
   background: #fff;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-top: 2rem;
   border-left: 4px solid #1a3d5d;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
 .business-hours h4 {
   color: #1a3d5d;
   margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 .hours-list {
   list-style: none;
@@ -378,11 +401,20 @@ img {
 .hours-list li {
   display: flex;
   justify-content: space-between;
-  padding: 0.3rem 0;
+  padding: 0.8rem 0;
   border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
 }
 .hours-list li:last-child {
   border-bottom: none;
+}
+.hours-list li span:first-child {
+  font-weight: 500;
+  color: #333;
+}
+.hours-list li span:last-child {
+  color: #1a3d5d;
+  font-weight: 500;
 }
 
 /* Contact Form */
@@ -474,11 +506,16 @@ img {
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  font-size: 1.1rem;
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
+}
+.map-container:hover iframe {
+  filter: grayscale(0%);
 }
 
 /* Footer */
@@ -487,7 +524,7 @@ footer {
   background: #1a3d5d;
   text-align: center;
   font-size: 0.9rem;
-  color: #fff;
+  color: rgba(255,255,255,0.8);
 }
 
 /* Animations */
@@ -538,6 +575,9 @@ footer {
   .map-section {
     padding: 2rem 5%;
   }
+  .map-container {
+    height: 300px;
+  }
   
   /* Ensure mobile menu links are visible */
   .mobile-menu.active .nav-links {
@@ -558,6 +598,18 @@ footer {
   .contact-form {
     padding: 1.5rem;
   }
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.2rem;
+  }
+  .contact-icon {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  .map-container {
+    height: 250px;
+  }
 }
 </style>
 </head>
@@ -567,7 +619,7 @@ footer {
             <div class="logo-container">
                 <img src="logo.png" alt="CA Logo">
             </div>
-            <span class="logo-text">CA & Associates</span>
+            <span class="logo-text"> FoundersCube</span>
         </div>
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -594,7 +646,7 @@ footer {
 
   <section class="page-header">
     <h1 class="fade-in">Get In Touch</h1>
-    <p class="fade-in">We're here to help you with all your financial and business needs</p>
+    <p class="fade-in">We're here to help you with all your financial and co-working space needs</p>
   </section>
 
   <section class="contact-section">
@@ -608,9 +660,10 @@ footer {
           <div class="contact-icon">📍</div>
           <div class="contact-details">
             <h4>Office Address</h4>
-            <p>123 Business District,<br>
-            Corporate Tower, Floor 5,<br>
-            Mumbai, Maharashtra 400001</p>
+            <p>102/1, Founders Cube 1st Floor,<br>
+            Outer Ring Rd, Kamadhenu Nagar,<br>
+            B Narayanapura, Mahadevapura,<br>
+            Bengaluru, Karnataka 560016</p>
           </div>
         </div>
 
@@ -618,9 +671,9 @@ footer {
           <div class="contact-icon">📞</div>
           <div class="contact-details">
             <h4>Phone Numbers</h4>
-            <p>Main Office: +91 98765 43210<br>
-            Co-Working: +91 98765 43211<br>
-            Emergency: +91 98765 43212</p>
+            <p>Main Office: <a href="tel:08029539796">080 29539796</a><br>
+            Mobile: <a href="tel:9744522483">9744522483</a><br>
+            Co-Working Space: 24/7 Access</p>
           </div>
         </div>
 
@@ -628,9 +681,9 @@ footer {
           <div class="contact-icon">✉️</div>
           <div class="contact-details">
             <h4>Email Addresses</h4>
-            <p>General: info@caassociates.com<br>
-            Services: services@caassociates.com<br>
-            Co-Working: workspace@caassociates.com</p>
+            <p>General Inquiries: <a href="mailto:founderscubeblr@gmail.com">founderscubeblr@gmail.com</a><br>
+            Co-Working Space: <a href="mailto:workspace@caassociates.com">workspace@caassociates.com</a><br>
+            Business Services: <a href="mailto:services@caassociates.com">services@caassociates.com</a></p>
           </div>
         </div>
 
@@ -640,17 +693,18 @@ footer {
             <h4>Website & Social</h4>
             <p>www.caassociates.com<br>
             LinkedIn: /company/ca-associates<br>
-            Twitter: @CAAssociates</p>
+            Follow us for business updates</p>
           </div>
         </div>
 
         <div class="business-hours">
-          <h4>Business Hours</h4>
+          <h4>🕒 Business Hours</h4>
           <ul class="hours-list">
             <li><span>Monday - Friday</span> <span>9:00 AM - 7:00 PM</span></li>
             <li><span>Saturday</span> <span>10:00 AM - 4:00 PM</span></li>
             <li><span>Sunday</span> <span>Closed</span></li>
             <li><span>Co-Working Space</span> <span>24/7 Access</span></li>
+            <li><span>Emergency Support</span> <span>Available on Call</span></li>
           </ul>
         </div>
       </div>
@@ -691,16 +745,21 @@ footer {
             <label for="service">Service Interest *</label>
             <select id="service" name="service" required>
               <option value="">Select a service</option>
-              <option value="audit">Audit & Assurance</option>
-              <option value="tax">Tax Consultancy</option>
-              <option value="compliance">Compliance Services</option>
-              <option value="business-advisory">Business Advisory</option>
-              <option value="private-cabin">Private Cabin</option>
-              <option value="dedicated-desk">Dedicated Desk</option>
-              <option value="hot-desk">Hot Desk</option>
-              <option value="registered-office">Registered Office</option>
-              <option value="virtual-office">Virtual Office</option>
-              <option value="conference-hall">Conference Hall</option>
+              <optgroup label="CA Services">
+                <option value="audit">Audit & Assurance</option>
+                <option value="tax">Tax Consultancy</option>
+                <option value="compliance">Compliance Services</option>
+                <option value="business-advisory">Business Advisory</option>
+                <option value="company-registration">Company Registration</option>
+              </optgroup>
+              <optgroup label="Co-Working Spaces">
+                <option value="private-cabin">Private Cabin (Rs. 30,000/pm)</option>
+                <option value="dedicated-desk">Dedicated Desk (Rs. 5,000/pm)</option>
+                <option value="hot-desk">Hot Desk (Rs. 100/hr or Rs. 3,500/pm)</option>
+                <option value="registered-office">Registered Office (Rs. 5,000/pm)</option>
+                <option value="virtual-office">Virtual Office (Rs. 2,000/pm)</option>
+                <option value="conference-hall">Conference Hall (Rs. 500/hr)</option>
+              </optgroup>
               <option value="other">Other</option>
             </select>
           </div>
@@ -709,8 +768,9 @@ footer {
             <label for="budget">Budget Range</label>
             <select id="budget" name="budget">
               <option value="">Select budget range</option>
-              <option value="under-10k">Under Rs. 10,000</option>
-              <option value="10k-50k">Rs. 10,000 - 50,000</option>
+              <option value="under-5k">Under Rs. 5,000</option>
+              <option value="5k-15k">Rs. 5,000 - 15,000</option>
+              <option value="15k-50k">Rs. 15,000 - 50,000</option>
               <option value="50k-1lakh">Rs. 50,000 - 1,00,000</option>
               <option value="1lakh-5lakh">Rs. 1,00,000 - 5,00,000</option>
               <option value="above-5lakh">Above Rs. 5,00,000</option>
@@ -718,8 +778,20 @@ footer {
           </div>
 
           <div class="form-group">
+            <label for="urgency">When do you need this service?</label>
+            <select id="urgency" name="urgency">
+              <option value="">Select timeframe</option>
+              <option value="immediate">Immediately</option>
+              <option value="this-week">This Week</option>
+              <option value="this-month">This Month</option>
+              <option value="next-month">Next Month</option>
+              <option value="planning">Just Planning</option>
+            </select>
+          </div>
+
+          <div class="form-group">
             <label for="message">Message *</label>
-            <textarea id="message" name="message" placeholder="Please describe your requirements in detail..." required></textarea>
+            <textarea id="message" name="message" placeholder="Please describe your requirements in detail. For co-working spaces, mention preferred location, team size, duration, and any specific needs..." required></textarea>
           </div>
 
           <button type="submit" class="submit-btn">Send Message</button>
@@ -732,13 +804,17 @@ footer {
   <section class="map-section">
     <h2 class="fade-in">Find Our Location</h2>
     <div class="map-container fade-in">
-      <p>🗺️ Interactive Map Coming Soon<br>
-      <small>Located in the heart of Mumbai's Business District</small></p>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.842!2d77.7234567!3d12.9876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13c4a4e5b6c7%3A0x8f4e7a2b9c5d3e1f!2sFounders%20Cube%20-%20Startup%20Incubation!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 CA & Associates | All Rights Reserved
+    &copy; 2025 CA & Associates | All Rights Reserved | Located at Founders Cube, Bengaluru
   </footer>
 
   <script>
