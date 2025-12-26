@@ -382,8 +382,348 @@ img {max-width:100%; display:block;}
 .contact-form button {align-self:center; background:#1a3d5d; color:#fff;}
 .contact-form button:hover {background:#145089;}
 
-/* Footer */
-footer {padding:2rem 5%; background:#1a3d5d; text-align:center; font-size:.9rem; color:#fff;}
+/* ================================
+   FOOTER WITH NAFROK CREDIT
+   ================================ */
+footer {
+  background: linear-gradient(135deg, #1a3d5d 0%, #145089 100%);
+  color: #fff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255,255,255,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 5% 2rem;
+  text-align: center;
+}
+
+.footer-company {
+  margin-bottom: 2rem;
+}
+
+.footer-logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo-section img {
+  height: 40px;
+}
+
+.footer-company-name {
+  font-family: 'Merriweather', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.footer-links-section {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin: 2rem 0;
+}
+
+.footer-links-section a {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+.footer-links-section a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.footer-links-section a:hover {
+  color: #fff;
+}
+
+.footer-links-section a:hover::after {
+  width: 100%;
+}
+
+/* NAFROK Credit Section */
+.nafrok-credit {
+  padding: 2.5rem 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.credit-divider {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.credit-divider::before,
+.credit-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+  transform: translateY(-50%);
+}
+
+.credit-divider::before {
+  left: -8px;
+}
+
+.credit-divider::after {
+  right: -8px;
+}
+
+.credit-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.credit-brand-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.8rem 3rem;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.credit-brand-link::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, 
+    transparent 0%, 
+    rgba(255,255,255,0.2) 25%, 
+    rgba(255,255,255,0.4) 50%, 
+    rgba(255,255,255,0.2) 75%, 
+    transparent 100%);
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.credit-brand-link:hover::before {
+  opacity: 1;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.credit-brand-link::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.credit-brand-link:hover::after {
+  width: 400px;
+  height: 400px;
+}
+
+.credit-brand-link:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.nafrok-brand-name {
+  font-family: 'Merriweather', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #fff;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.credit-brand-link:hover .nafrok-brand-name {
+  letter-spacing: 6px;
+  text-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+
+.nafrok-tagline {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.credit-brand-link:hover .nafrok-tagline {
+  color: rgba(255,255,255,0.95);
+}
+
+.credit-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  opacity: 0;
+  font-size: 1.5rem;
+  color: #fff;
+  transition: all 0.4s ease;
+}
+
+.credit-brand-link:hover .credit-arrow {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.footer-bottom {
+  background: rgba(0,0,0,0.2);
+  padding: 1.2rem 5%;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    padding: 2.5rem 5% 1.5rem;
+  }
+
+  .footer-company-name {
+    font-size: 1.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.9rem;
+  }
+
+  .footer-links-section {
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    margin: 1.5rem 0;
+  }
+
+  .footer-links-section a {
+    font-size: 0.9rem;
+  }
+
+  .credit-brand-link {
+    padding: 1.5rem 2rem;
+  }
+
+  .nafrok-brand-name {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+
+  .nafrok-tagline {
+    font-size: 0.85rem;
+  }
+
+  .credit-arrow {
+    right: 15px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo-section {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-company-name {
+    font-size: 1.3rem;
+  }
+
+  .footer-links-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .credit-brand-link {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .nafrok-brand-name {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .credit-brand-link:hover .nafrok-brand-name {
+    letter-spacing: 3px;
+  }
+
+  .nafrok-tagline {
+    font-size: 0.8rem;
+  }
+}
 
 /* Animations */
 .fade-in {opacity:0; transform:translateY(20px); transition:all .8s ease;}
@@ -440,7 +780,7 @@ footer {padding:2rem 5%; background:#1a3d5d; text-align:center; font-size:.9rem;
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
     <a href="coworking.html">Co-Working Space</a>
-    <a href="contact.html" class="active">Contact Us</a>
+    <a href="contact.html" class="active ">Contact Us</a>
   </div>
 </div>
 
@@ -581,7 +921,38 @@ footer {padding:2rem 5%; background:#1a3d5d; text-align:center; font-size:.9rem;
 
 <!-- Footer -->
 <footer>
-  &copy; 2025 FoundersCube | All Rights Reserved
+  <div class="footer-content">
+    <div class="footer-company">
+      <div class="footer-logo-section">
+        <img src="logo.png" alt="FoundersCube Logo">
+        <span class="footer-company-name">FoundersCube</span>
+      </div>
+      <p class="footer-tagline">Empowering startups and entrepreneurs with world-class incubation, co-working spaces, and strategic mentorship in Bangalore.</p>
+    </div>
+
+    <div class="footer-links-section">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="coworking.html">Co-Working Space</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <!-- NAFROK CREDIT SECTION -->
+    <div class="nafrok-credit">
+      <div class="credit-divider"></div>
+      <p class="credit-label">Website Crafted By</p>
+      <a href="https://nafrok.com" target="_blank" rel="dofollow" class="credit-brand-link">
+        <span class="nafrok-brand-name">NAFROK</span>
+        <span class="nafrok-tagline">Digital Experiences Designed for Modern Brands</span>
+        <span class="credit-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 FoundersCube | All Rights Reserved
+  </div>
 </footer>
 
 <script>
@@ -614,5 +985,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 </script>
 </body>
 </html>
+
 
 
